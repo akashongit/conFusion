@@ -3,13 +3,13 @@
     fxLayout.sm="column"
     fxLayout.xs="column"
     fxLayoutAlign.gt-md="space-around"
-
     fxLayoutGap="10px" 
-    fxLayoutGap.xs="0">
+    fxLayoutGap.xs="0"
+    *ngIf="dish">
     <!-- fxLayoutAlign.gt-md="space-around center" -->
-  <div fxFlex="40">
+  <div fxFlex="40" >
     
-    <div fxFlex *ngIf="dish"></div>
+    <div fxFlex></div>
     <mat-card>
       <mat-card-header>
         <mat-card-title>
