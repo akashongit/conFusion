@@ -23,6 +23,7 @@ import {DishService} from './services/dish.service';
 
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { PromotionService } from './services/promotion.service';
+import { LeaderService } from './services/leader.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { PromotionService } from './services/promotion.service';
   ],
   providers: [
     DishService,
-    PromotionService
+    PromotionService,
+    LeaderService
   ],
   bootstrap: [AppComponent]
 })
