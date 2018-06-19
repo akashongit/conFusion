@@ -2,12 +2,12 @@
     fxLayout="row"
     fxLayout.sm="column"
     fxLayout.xs="column"
-    fxLayoutAlign.gt-md="space-around"
+    fxLayoutAlign.gt-mat="space-around center"
     fxLayoutGap="10px" 
     fxLayoutGap.xs="0"
     *ngIf="dish">
-    <!-- fxLayoutAlign.gt-md="space-around center" -->
-  <div fxFlex="40" >
+<!-- dish -->
+  <div fxFlex="40"  >
     
     <div fxFlex></div>
     <mat-card>
@@ -28,7 +28,7 @@
       
     </mat-card>
   </div>
-
+<!-- comments -->
   <div fxFlex="40">
     <mat-card>
       <mat-card-header>
@@ -50,5 +50,8 @@
       </mat-card-content>
     </mat-card>
   </div>
-
 </div>
+
+<div [hidden]="dish">
+  <mat-spinner></mat-spinner><h4>Loading dish . . . Please Wait</h4>
+ </div> 

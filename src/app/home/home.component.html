@@ -4,21 +4,24 @@
      fxLayout.xs="column"
      fxLayoutAlign.gt-mat="space-around center"
      fxLayoutGap="10px">
-
-<mat-card *ngIf="dish" fxFlex>
-  <mat-card-header>
-    <div mat-card-avatar></div>
-    <mat-card-title>
-      <h3>{{dish.name | uppercase}}</h3>
-    </mat-card-title>
-  </mat-card-header>
-  <img mat-card-image src={{dish.image}} alt={{dish.name}}>
-  <mat-card-content>
-    <p>{{dish.description}}
-    </p>
-  </mat-card-content>
-</mat-card>
-
+<!-- dishes -->
+  <mat-card *ngIf="dish" fxFlex>
+    <mat-card-header>
+      <div mat-card-avatar></div>
+     <mat-card-title>
+       <h3>{{dish.name | uppercase}}</h3>
+      </mat-card-title>
+   </mat-card-header>
+    <img mat-card-image src={{dish.image}} alt={{dish.name}}>
+    <mat-card-content>
+      <p>{{dish.description}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+<div [hidden]="dish">
+  <mat-spinner></mat-spinner><h4>Loading dish . . . Please Wait</h4>
+</div>
+  <!-- promotions -->
 <mat-card *ngIf="promotion" fxFlex>
   <mat-card-header>
     <div mat-card-avatar></div>
@@ -32,7 +35,10 @@
     </p>
   </mat-card-content>
 </mat-card>
-
+<div [hidden]="promotion">
+  <mat-spinner></mat-spinner><h4>Loading promotions . . . Please Wait</h4>
+</div>
+  <!-- leaders -->
 <mat-card *ngIf="leader" fxFlex>
     <mat-card-header>
       <div mat-card-avatar></div>
@@ -46,5 +52,7 @@
       </p>
     </mat-card-content>
   </mat-card>
-
+  <div [hidden]="leader">
+    <mat-spinner></mat-spinner><h4>Loading leaders . . . Please Wait</h4>
+  </div>
 </div>
