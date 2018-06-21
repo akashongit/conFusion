@@ -15,6 +15,9 @@ import {HttpModule} from '@angular/http';
 
 import {baseURL} from './shared/baseurl';
 
+import {RestangularModule, Restangular} from 'ngx-restangular';
+import {RestangularConfigFactory} from './shared/restConfig';
+
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
@@ -46,6 +49,7 @@ import {ProcessHTTPMsgService} from './services/process-httpmsg.service';
     LoginComponent
   ],
   imports: [
+    RestangularModule.forRoot(RestangularConfigFactory),
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
