@@ -35,6 +35,7 @@ import { LeaderService } from './services/leader.service';
 import { LoginComponent } from './login/login.component';
 
 import {ProcessHTTPMsgService} from './services/process-httpmsg.service';
+import { HighlightDirective } from './directive/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {ProcessHTTPMsgService} from './services/process-httpmsg.service';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    HighlightDirective
   ],
   imports: [
     RestangularModule.forRoot(RestangularConfigFactory),
