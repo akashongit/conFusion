@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Dish} from '../shared/dish';
-import { Http, Response } from '@angular/http';
-import { baseURL } from '../shared/baseurl';
-import { ProcessHTTPMsgService } from './process-httpmsg.service';
+// import { Http, Response } from '@angular/http';
 
 import {RestangularModule, Restangular} from 'ngx-restangular';
 
-import { resolve } from 'url';
+// import { resolve } from 'url';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -19,8 +17,7 @@ import 'rxjs/add/operator/map';
 })
 export class DishService {
 
-  constructor(private restangular: Restangular,
-    private processHTTPMsgService: ProcessHTTPMsgService) { }
+  constructor(private restangular: Restangular) { }
 
     getDishes(): Observable<Dish[]> {
       return this.restangular.all('dishes').getList();
