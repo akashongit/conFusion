@@ -4,7 +4,8 @@
   fxLayout.sm="column" 
   fxLayout.xs="column" 
   fxLayoutAlign.gt-mat="space-around center" 
-  fxLayoutGap="10px" fxLayoutGap.xs="0" 
+  fxLayoutGap="10px"
+  fxLayoutGap.xs="0" 
   *ngIf="dish">
     <!-- dish -->
     <div fxFlex="40" >
@@ -19,21 +20,22 @@
           <p>{{dish.description}}</p>
         </mat-card-content>
         <mat-card-actions>
-          <span class="fa fa-chevron-left fa-lg"></span>
-          <button mat-button [routerLink]="['/dishdetail',prev]">PREV</button>
-
+          <button mat-button [routerLink]="['/dishdetail',prev]">
+            <span class="fa fa-chevron-left fa-lg"></span>PREV
+          </button>
           <button mat-button (click)="goBack()">BACK</button>
           <button mat-button>LIKE</button>
           <button mat-button>SHARE</button>
           <span class="flex-spacer"></span>
-          <button mat-button [routerLink]="['/dishdetail',next]">NEXT</button>
-          <span class="fa fa-chevron-right fa-lg"></span>
+          <button mat-button [routerLink]="['/dishdetail',next]">NEXT
+            <span class="fa fa-chevron-right fa-lg"></span>
+          </button>
         </mat-card-actions>
       </mat-card>
     </div>
     <!-- comments -->
-    <div fxLayout="column" fxFlex="40">
-      <mat-card fxFlex>
+    <div fxFlex="40">
+      <mat-card>
         <mat-card-header>
           <mat-card-title>
             <h3>Comments</h3>
@@ -51,30 +53,30 @@
                   </p>
                 </mat-list-item>
                 <!-- new comment -->
-                <mat-list-item>
+                <mat-list-item >
                     <p mat-line>{{commentForm.value.comment}}</p>
                     <h3 mat-line>&nbsp;{{commentForm.value.rating}} stars</h3>
                     <p mat-line>
                       <span>--<b>{{commentForm.value.author}}&nbsp;&nbsp;</b></span> 
-                      <span></span>
                     </p>
                   </mat-list-item>
             </div>
           </mat-list>
-          <mat-list>
-            <div fxFlex>
+        </mat-card-content>
+      </mat-card>
+            <div>
             <!-- comment form here -->
-              <mat-list-item>
                 <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="comment-form">
                   <p>
                     <mat-form-field mat-line class="half-width" 
                     dividerColor="{{ formErrors.author ? 'warn' : 'primary'}}" >
-                    <input matInput formControlName="author" placeholder="Name" type="text" required>
-                    <mat-hint>
-                      <span [hidden]="!(formErrors.author)">{{formErrors.author}}</span>
-                    </mat-hint>
+                      <input matInput formControlName="author" placeholder="Name" type="text" required>
+                      <mat-hint>
+                        <span [hidden]="!(formErrors.author)">{{formErrors.author}}</span>
+                      </mat-hint>
                     </mat-form-field>
-                    <mat-slider formControlName="rating" min="1" max="5" step="1" tickInterval="1" value="5"></mat-slider>
+                    <br/>
+                    <mat-slider mat-line formControlName="rating" min="1" max="5" step="1" tickInterval="1" value="5"></mat-slider>
                   </p>
 
                   <p>
@@ -88,11 +90,7 @@
                   </p>
                   <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>
                 </form>
-                </mat-list-item>
-            </div>
-          </mat-list>
-        </mat-card-content>
-      </mat-card>
+              </div>
     </div>
   </div>
 
