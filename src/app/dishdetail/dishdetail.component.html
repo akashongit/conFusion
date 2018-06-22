@@ -1,5 +1,4 @@
-<div class="container">
-  <div fxFlex class="container" 
+<div fxFlex class="container" 
   fxLayout="row"
   fxLayout.sm="column" 
   fxLayout.xs="column" 
@@ -7,7 +6,7 @@
   fxLayoutGap="10px" fxLayoutGap.xs="0" 
   *ngIf="dish">
     <!-- dish -->
-    <div fxFlex="40" [@visibility]="visibility" [@expand] >
+  <div fxFlex="40" [@visibility]="visibility" [@expand] >
       <mat-card>
         <mat-card-header>
           <mat-card-title>
@@ -19,29 +18,30 @@
           <p>{{dish.description}}</p>
         </mat-card-content>
         <mat-card-actions>
-          <span class="fa fa-chevron-left fa-lg"></span>
-          <button mat-button [routerLink]="['/dishdetail',prev]">PREV</button>
+          <button mat-button [routerLink]="['/dishdetail',prev]">
+            <span class="fa fa-chevron-left fa-lg"></span>PREV
+          </button>
 
           <button mat-button (click)="goBack()">BACK</button>
           <button mat-button>LIKE</button>
           <button mat-button>SHARE</button>
           <span class="flex-spacer"></span>
-          <button mat-button [routerLink]="['/dishdetail',next]">NEXT</button>
-          <span class="fa fa-chevron-right fa-lg"></span>
+          <button mat-button [routerLink]="['/dishdetail',next]">
+          NEXT<span class="fa fa-chevron-right fa-lg"></span>
+          </button>
         </mat-card-actions>
       </mat-card>
-    </div>
+  </div>
     <!-- comments -->
-    <div fxLayout="column" fxFlex="40" [@visibility]="visibility" [@expand]>
-      <mat-card fxFlex>
+  <div fxFlex="50" [@visibility]="visibility" [@expand]>
+      <mat-card>
         <mat-card-header>
           <mat-card-title>
             <h3>Comments</h3>
           </mat-card-title>
         </mat-card-header> 
         <mat-card-content>
-          <mat-list >
-            <div fxFlex>
+          <mat-list>
                 <mat-list-item *ngFor="let comment of dish.comments">
                   <p mat-line>{{comment.comment}}</p>
                   <h3 mat-line>{{comment.rating}}&nbsp;stars</h3>
@@ -59,12 +59,11 @@
                       <span></span>
                     </p>
                   </mat-list-item>
-            </div>
           </mat-list>
-          <mat-list>
-            <div fxFlex>
+            </mat-card-content>
+          </mat-card>
+            <div>
             <!-- comment form here -->
-              <mat-list-item>
                 <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="comment-form">
                   <p>
                     <mat-form-field mat-line class="half-width" 
@@ -74,9 +73,9 @@
                       <span [hidden]="!(formErrors.author)">{{formErrors.author}}</span>
                     </mat-hint>
                     </mat-form-field>
+                    <br/>
                     <mat-slider formControlName="rating" min="1" max="5" step="1" tickInterval="1" value="5"></mat-slider>
                   </p>
-
                   <p>
                     <mat-form-field class="full-width" 
                     dividerColor="{{ formErrors.comment ? 'warn' : 'primary'}}" >
@@ -88,19 +87,15 @@
                   </p>
                   <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>
                 </form>
-                </mat-list-item>
             </div>
-          </mat-list>
-        </mat-card-content>
-      </mat-card>
-    </div>
   </div>
 
-  <div [hidden]="dish || errMess">
+</div>
+
+<div [hidden]="dish || errMess">
   <mat-spinner></mat-spinner><h4>Loading dish . . . Please Wait</h4>
-  </div>
-  <div *ngIf="errMess" style="color: red">
+</div>
+<div *ngIf="errMess" style="color: red">
     <h2>Error</h2>
     <h4>{{errMess}}</h4>
-  </div>
-</div> 
+</div>
