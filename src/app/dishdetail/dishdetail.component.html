@@ -3,7 +3,8 @@
   fxLayout.sm="column" 
   fxLayout.xs="column" 
   fxLayoutAlign.gt-mat="space-around center" 
-  fxLayoutGap="10px" fxLayoutGap.xs="0" 
+  fxLayoutGap="10px"
+  fxLayoutGap.xs="0" 
   *ngIf="dish">
     <!-- dish -->
   <div fxFlex="40" [@visibility]="visibility" [@expand] >
@@ -21,7 +22,6 @@
           <button mat-button [routerLink]="['/dishdetail',prev]">
             <span class="fa fa-chevron-left fa-lg"></span>PREV
           </button>
-
           <button mat-button (click)="goBack()">BACK</button>
           <button mat-button>LIKE</button>
           <button mat-button>SHARE</button>
